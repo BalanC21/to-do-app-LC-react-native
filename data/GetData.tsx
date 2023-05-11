@@ -1,6 +1,7 @@
-import {Button, Text, View} from "react-native";
+import {Text, View} from "react-native";
 import {useState} from "react";
 import {BASE_URL} from '../Store'
+import {Button} from "native-base";
 
 export default function GetData() {
     const [data, setData] = useState('ana are mere')
@@ -8,8 +9,8 @@ export default function GetData() {
     const fetchName = async () => {
         try {
             const response = await fetch(`${BASE_URL}api/test`);
-            // const response = await fetch('http://localhost:3000/api/test');
             const data = await response.json();
+            console.log(data)
             setData(data);
         } catch (e) {
 
@@ -21,6 +22,10 @@ export default function GetData() {
         <Text>
             De ce nu merge?: + {data}
         </Text>
-        <Button title={'SetName'} onPress={fetchName}/>
+        {/*<Button title={'SetName'} onPress={fetchName}/>*/}
+        <Text>
+            {'\n'}{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}
+        </Text>
+        <Button colorScheme="success" onPress={fetchName}>Success</Button>
     </View>)
 }

@@ -1,14 +1,19 @@
 import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, Text, View} from 'react-native';
 import GetData from "./data/GetData";
+import TestNativeBase from "./exper/TestNativeBase";
+import {NativeBaseProvider} from "native-base";
 
 export default function App() {
     return (
-        <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
-            <GetData/>
-            <StatusBar style="auto"/>
-        </View>
+        <NativeBaseProvider>
+            <View style={styles.container}>
+                <Text>Open up App.js to start working on your app!</Text>
+                <GetData/>
+                <TestNativeBase/>
+                <StatusBar style="auto"/>
+            </View>
+        </NativeBaseProvider>
     );
 }
 
